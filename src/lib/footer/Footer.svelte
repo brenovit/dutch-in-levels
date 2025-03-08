@@ -58,7 +58,6 @@
       <div class="footer-links">
         <a href="/">Home</a>
         <a href="/about">Over Ons</a>
-        <a href="/contact">Contact</a>
       </div>
   
       <div class="social-icons">

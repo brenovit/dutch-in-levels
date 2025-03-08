@@ -1,124 +1,118 @@
-<script lang="ts">
-	import { page } from '$app/state';
+<script lang="ts">  
 	import logo from '$lib/images/logo.png';
-	import github from '$lib/images/github.svg';
-</script>
+	import github from '$lib/images/github.svg'
 
-<header>
-	<div class="corner">
-		<img src={logo} alt="DutchInLevels" />
-	</div>
-
-	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
-			<li aria-current={page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">Home</a>
-			</li>
-			<li aria-current={page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href="/about">About</a>
-			</li>
-		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
-	</nav>
-
-	<div class="corner">
-		<a href="https://github.com/brenovit/dutch-in-levels" target="_blank">
-			<img src={github} alt="GitHub" />
-		</a>
-	</div>
-</header>
-
-<style>
+	let menuOpen: boolean = false;
+  
+	function toggleMenu(): void {
+	  menuOpen = !menuOpen;
+	}
+  </script>
+  
+  <style>
 	header {
-		display: flex;
-		justify-content: space-between;
+	  background: linear-gradient(to right, #ff6700, #002f6c);
+	  color: white;
+	  padding: 15px 20px;
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 	}
-
-	.corner {
-		width: 3em;
-		height: 3em;
+  
+	.logo-container {
+	  display: flex;
+	  align-items: center;
+	  gap: 10px;
 	}
-
-	.corner a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
+  
+	.logo {
+	  height: 40px;
 	}
-
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
+  
+	.site-name {
+	  font-size: 1.8rem;
+	  font-weight: bold;
 	}
-
-	nav {
-		display: flex;
-		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
+  
+	.nav-links {
+	  display: flex;
+	  gap: 20px;
 	}
-
-	svg {
-		width: 2em;
-		height: 3em;
-		display: block;
+  
+	.nav-links a {
+	  color: white;
+	  text-decoration: none;
+	  font-size: 1rem;
+	  font-weight: bold;
+	  transition: color 0.3s ease;
 	}
-
-	path {
-		fill: var(--background);
+  
+	.nav-links a:hover {
+	  color: #ffcc00;
 	}
-
-	ul {
-		position: relative;
-		padding: 0;
-		margin: 0;
-		height: 3em;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		list-style: none;
-		background: var(--background);
-		background-size: contain;
+  
+	/* GitHub Icon */
+	.github-icon {
+	  font-size: 1.5rem;
+	  margin-left: 15px;
+	  color: white;
+	  transition: transform 0.2s;
 	}
-
-	li {
-		position: relative;
-		height: 100%;
+  
+	.github-icon:hover {
+	  transform: scale(1.2);
 	}
-
-	li[aria-current='page']::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
+  
+	/* Mobile Menu */
+	.menu-button {
+	  display: none;
+	  font-size: 1.5rem;
+	  cursor: pointer;
+	}
+  
+	@media (max-width: 768px) {
+	  .nav-links {
+		display: none;
+		flex-direction: column;
+		background: #002f6c;
 		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--color-theme-1);
-	}
-
-	nav a {
+		top: 60px;
+		right: 0;
+		width: 100%;
+		padding: 10px;
+		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+	  }
+  
+	  .nav-links.open {
 		display: flex;
-		height: 100%;
-		align-items: center;
-		padding: 0 0.5rem;
-		color: var(--color-text);
-		font-weight: 700;
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		text-decoration: none;
-		transition: color 0.2s linear;
+	  }
+  
+	  .menu-button {
+		display: block;
+	  }
 	}
-
-	a:hover {
-		color: var(--color-theme-1);
-	}
-</style>
+  </style>
+  
+  <header>
+	<!-- Logo & Site Name -->
+	<div class="logo-container">
+	  <img src={logo} alt="DutchInLevels" class="logo" />
+	  <div class="site-name">DutchInLevels</div>
+	</div>
+  
+	<!-- Mobile Menu Button -->
+	<button class="menu-button" on:click={toggleMenu}>
+	  ☰
+	</button>
+  
+	<!-- Navigation Links -->
+	<nav class="nav-links {menuOpen ? 'open' : ''}">
+	  <a href="/">Home</a>
+	  <a href="/about">Over Ons</a>
+	  <a href="https://github.com/brenovit/dutch-in-levels" target="_blank"class="github-icon" aria-label="GitHub">
+		<img src={github} alt="GitHub" />
+	  </a>
+	</nav>
+  </header>
+  
