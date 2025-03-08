@@ -1,0 +1,40 @@
+[
+	{
+		"title": "Klimaatverandering beïnvloedt weerpatronen",
+		"level1": "Het weer verandert door klimaatverandering. Het wordt warmer en er is meer regen.",
+		"level2": "Door klimaatverandering verandert het weer. Er zijn meer hete dagen en meer regen.",
+		"level3": "Klimaatverandering zorgt voor veranderingen in weerpatronen, met frequentere hittegolven en hevige regenval.",
+		"highlights": ["klimaatverandering", "regen", "hete dagen"],
+		"questions": [
+			{
+				"question": "Wat is een effect van klimaatverandering?",
+				"choices": ["Meer sneeuw", "Meer regen", "Minder hitte"],
+				"answer": "Meer regen"
+			},
+			{
+				"question": "Wat gebeurt er met hete dagen?",
+				"choices": ["Ze verdwijnen", "Er komen meer", "Ze blijven gelijk"],
+				"answer": "Er komen meer"
+			}
+		]
+	},
+	{
+		"title": "Nieuwe technologie helpt boeren",
+		"level1": "Boeren gebruiken nieuwe machines. Dit helpt hen met werken.",
+		"level2": "Nieuwe technologie helpt boeren hun werk makkelijker te maken.",
+		"level3": "Moderne landbouwtechnologie verbetert de efficiëntie van boeren en verhoogt de opbrengsten.",
+		"highlights": ["boeren", "technologie", "machines"],
+		"questions": [
+			{
+				"question": "Hoe helpt technologie boeren?",
+				"choices": ["Het maakt het moeilijker", "Het helpt met werken", "Het stopt het boeren"],
+				"answer": "Het helpt met werken"
+			},
+			{
+				"question": "Wat gebruiken boeren?",
+				"choices": ["Oude technieken", "Nieuwe machines", "Geen technologie"],
+				"answer": "Nieuwe machines"
+			}
+		]
+	}
+]
